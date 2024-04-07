@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% block styles %}
+<style>
+    .container{
+        margin-top: 5%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .flex-child{
+        width: 60%
+    }
+    a{
+        color: #37B5B6;
+    }
+    a:hover{
+        color: #F2F597;
+   }
+
+</style>
+{% endblock %}
+
+{% block content %}
+    {% if current_user.is_authenticated %}
+        Hi {{ current_user.name }}!
+    {% endif %}
+    <!-- Header -->
+    {% include "header.html" %}
+        <div class="container">
+            <div class="flex-child">
+                <h3 class="first-child">Create New Account</h3>
+                <hr>
+                <form novalidate="novalidate" action="" accept-charset="UTF-8" method="post">
+                    {{ form.csrf_token }}
+
+                    <br>
+                        {{ form.username }}
+                        {% if form.username.errors|length > 0 %}
+                            {{ form.username.errors[0] }}
+                        {% endif %}
+                        {{ error[0] }}
+                    <br>
+                        {{ form.email }}
+                        {% if form.email.errors|length > 0 %}
+                            {{ form.email.errors[0] }}
+                        {% endif %}
+                        {{ error[1] }}
+                    <br>
+                        {{ form.password }}
+                        {% if form.password.errors|length > 0 %}
+                            {{ form.password.errors[0] }}
+                        {% endif %}
+                    <br>
+                        {{ form.confirm }}
+                <hr>
+                <div style="text-align: justify; margin: 2%;" >
+                    <span>
+                    <p>
+                        We will use information you provided for management and administration purposes, and for keeping you informed by mail, telephone, email and SMS of other products and services from us and our partners. You can proactively manage your preferences or opt-out of communications with us at any time using Privacy Centre. You have the right to access your data held by us or to request your data to be deleted. For full details please see the ICH
+                    </p>
+                        <a target="_blank" href="{{ url_for('privacy_policy') }}">Privacy Policy</a>.
+                    </span>
+                </div>
+                <br>
+                    {{ form.Tos1 }}
+                    <label for="{{ form.Tos1.id }}"> I am 16 years old and over</label>
+                    {% if form.Tos1.errors|length > 0 %}
+                        {{ form.Tos1.errors[0] }}
+                    {% endif %}
+                    <br>
+                    {{ form.Tos2 }}
+                    <label for="{{ form.Tos2.id }}">I agree with
+                        <a target="_blank" href="{{ url_for('privacy_policy') }}">Privacy Policy</a>,
+                        <a target="_blank" href="{{ url_for('privacy_policy') }}">Terms and conditions of sale</a>
+                        and
+                        <a target="_blank" href="{{ url_for('privacy_policy') }}">Websites terms and conditions of use</a>
+                    </label>
+                    {% if form.Tos2.errors|length > 0 %}
+                        {{ form.Tos2.errors[0] }}
+                    {% endif %}
+
+                    <hr>
+                    I consent to receive communications from ICH and their partners:<br><br>
+                        {{ form.option1 }} <label for="option1">{{ form.option1.name }}</label>
+                        <br>
+                        {{ form.option2 }} <label for="option2">{{ form.option2.name }}</label>
+                        <br>
+                        {{ form.option3 }} <label for="option3">{{ form.option3.name }}</label>
+                        <br>
+
+                    <br>
+                <div>
+                    {{ form.recaptcha }}
+                </div>
+                <br>
+                    {{ form.submit }}
+                </form>
+            </div>
+        </div>
+{% endblock %}

@@ -1,0 +1,16 @@
+<header id="header">
+    <a href="/" class="title">ICH - Intertemporal Crystal Hedging</a>
+    <nav>
+        <ul>
+            <li><a href="/" class="active">Home</a></li>
+            <li><a href="{{ url_for('api_documentation') }}" class="active">API</a></li>
+            <li><a href="{{ url_for('code') }}" class="active">Sanbox</a></li>
+            <li><a href="{{ url_for('glimpse') }}" class="active">What we do</a></li>
+            {% if current_user.is_authenticated %}
+            <li><a href="{{ url_for('account') }}" class="active">Account</a></li>
+            {% else %}
+            <li><a href="{{ url_for('sign_in') }}" class="active">Sign in</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+</header>

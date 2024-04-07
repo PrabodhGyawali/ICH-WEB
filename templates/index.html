@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+
+{% block content %}
+		<!-- Sidebar -->
+			<section id="sidebar">
+				<div class="inner">
+					<nav>
+						<ul>
+							<li><a href="#intro">Welcome</a></li>
+							<li><a href="generic.html">What we do</a></li>
+							<li><a href="#one">Who we are</a></li>
+							<li><a href="#three">Get in touch</a></li>
+						</ul>
+					</nav>
+				</div>
+			</section>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Intro -->
+					<section id="intro" class="wrapper style1 fullscreen fade-up">
+						<div class="inner">
+							<h1>ICH - Intertemporal Crystal Hedging</h1>
+							<p><i>Now and then, and then, and so on</i></p>
+							<ul class="actions">
+								<li><a href="/generic.html" class="button scrolly">Learn more</a></li>
+								<li><a href="/glimpse" class="button scrolly">ICH Modelling</a></li>
+								<li><a href="/code" class="button scrolly">Sandbox</a></li>
+								<li><a href="/api/documentation" class="button scrolly">API</a></li>
+							</ul>
+						</div>
+					</section>
+
+				<!-- One -->
+					<section id="one" class="wrapper style2 spotlights">
+						<section>
+							<a href="#" class="image"><img src="{{ url_for('static', filename='images/ELLIOT.jpg') }}" alt="Image 1" data-position="center center" /></a>
+							<div class="content">
+								<div class="inner">
+									<h2>Elliot Christophers</h2>
+									<p>Responsible for modelling, trading and analysis.</p>
+
+								</div>
+							</div>
+						</section>
+						<section>
+							<a href="#" class="image"><img src="{{ url_for('static', filename='images/OLIVER.jpg') }}" alt="Image 1" data-position="top center" /></a>
+							<div class="content">
+								<div class="inner">
+									<h2>Oliver Christophers</h2>
+									<p>Responsible for data collection and manipulation, trade automation and infrastructure.</p>
+								</div>
+							</div>
+						</section>
+						<section>
+							<a href="#" class="image"><img src="{{ url_for('static', filename='images/PRABODH.jpg') }}" alt="Image 1" data-position="top center" /></a>
+							<div class="content">
+								<div class="inner">
+									<h2>Prabodh Gyawali</h2>
+									<p>Responsible for ICH Web Server maintenance and back-end programming.</p>
+								</div>
+							</div>
+						</section>
+					</section>
+
+
+				<!-- Three -->
+					<section id="three" class="wrapper style1 fade-up">
+						<div class="inner">
+							<h2>Get in touch</h2>
+							<div class="split style1">
+								<section>
+									<form method="post" action="">
+										<div class="fields">
+											<div class="field half">
+												<label for="name">Name</label>
+												<input type="text" name="name" id="name" />
+											</div>
+											<div class="field half">
+												<label for="email">Email</label>
+												<input type="text" name="email" id="email" />
+											</div>
+											<div class="field">
+												<label for="message">Message</label>
+												<textarea name="message" id="message" rows="8"></textarea>
+											</div>
+										</div>
+										<ul class="actions">
+											<li><a href="" class="button submit">Send Message</a></li>
+										</ul>
+									</form>
+								</section>
+								<section>
+									<ul class="contact">
+										<li>
+											<h3>Address</h3>
+											<span>171 72 Emmylundsvägen 1<br />
+											Solna, Stockholm<br />
+											Sweden</span>
+										</li>
+										<li>
+											<h3>Email</h3>
+											<a href="#">oliverchristophers@gmail.com</a>
+										</li>
+										<li>
+											<h3>Phone</h3>
+											<span>(+46) 73-37 116 78</span>
+										</li>
+										<li>
+											<h3>Social</h3>
+											<ul class="icons">
+												<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+												<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+												<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+												<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+												<li><a href="#" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+											</ul>
+										</li>
+									</ul>
+								</section>
+							</div>
+						</div>
+					</section>
+
+			</div>
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% block styles %}
+<style>
+    .container{
+        /*margin-top: 5%;*/
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    a{
+        color: #37B5B6;
+    }
+    a:hover{
+        color: #F2F597;
+   }
+
+
+</style>
+{% endblock %}
+
+{% block content %}
+    <!-- Header -->
+    {% include "header.html" %}
+
+    <div class="container">
+        <div class="sign-form">
+            <h3 class="first-child">Sign In To Your Account</h3>
+            <hr>
+            {{ error }}
+            <form novalidate="novalidate" method="post" action="{{ url_for('sign_in') }}">
+                {{ main_form.csrf_token }}
+                <div>
+                    {{ main_form.email() }}
+                    {% if main_form.email.errors|length > 0 %}
+                        {% for error in main_form.email.errors %}
+                            {{ error }}
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                    <br>
+                <div>
+                    {{ main_form.password() }}
+                    {% if main_form.password.errors|length > 0 %}
+                        {% for error in main_form.password.errors %}
+                            {{ error }}
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                    <br>
+                <div>
+                    {{ main_form.remember_me() }}
+                    <label for="remember_me">Remember me</label>
+                </div>
+                {{ main_form.submit() }}
+                <hr>
+            </form>
+            <p>Not registered?    <a href="{{ url_for('register') }}">Create an Account.</a></p>
+            <div>
+                <div id="pwd-lost">
+                    Lost your password?    <a onclick='document.getElementById("pwd-lost").style.display = "none";document.getElementById("pwd-recover").style.display = "block";'>Click here to recover.</a>
+                </div>
+
+                <div id="pwd-recover" style="display: none;">
+                    <p style="text-align:justify;">Enter the email address for your password</p>
+                    <form class="simple_form form-inline" novalidate="novalidate" action="" accept-charset="UTF-8" method="post">
+<!--                        Authentication CSRF-->
+                        <div>
+                            <input placeholder="Enter email" type="email" value="" name="user[email]" id="user_email">
+                        </div>
+                        <br>
+                        <input type="submit" name="commit" value="Send">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

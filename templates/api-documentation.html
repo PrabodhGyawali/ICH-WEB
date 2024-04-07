@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% include 'header.html' %}
+
+{% block styles %}
+<style>
+    a{
+       text-decoration: none;
+    }
+    .container{
+        width: fit-content;
+        margin: 5% auto 5% auto;
+        text-align: center;
+        justify-content: center;
+        height: fit-content;
+    }
+
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>API Documentation</h1>
+    <iframe src="https://giphy.com/embed/26BRLGB7eWATEI1Ik" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+</div>
+{% endblock %}

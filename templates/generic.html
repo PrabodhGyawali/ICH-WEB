@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<style>
+			.video-container {
+				position: relative;
+				width: 100%;
+				height: 80vh; /* Set the height to 100% of the viewport height */
+			}
+
+			a {
+				color: #ffffff;
+				text-decoration: none;
+				border-bottom: 2px solid transparent;
+				transition: border-bottom 0.3s ease-in-out;
+				}
+
+			a:hover {
+				border-bottom: 2px solid #007BFF;
+				}
+
+			.video-container video {
+				position: absolute;
+				top: 45%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				max-width: 100%;
+				max-height: 100%;
+			}
+
+			.center-image {
+				display: block;
+				margin: 0 auto;
+				margin-bottom: 45px;
+			}
+
+			.image-container {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+</style>
+{% endblock %}
+
+{% block content %}
+		{% include 'header.html' %}
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main" class="wrapper">
+						<div class="inner">
+							<h1 class="major">What we do</h1>
+							<div class="video-container">
+								<video width="1280" height="720" controls>
+									<source src="{{ url_for('static', filename='videos/ad - Made with Clipchamp (1).mp4') }}" type="video/mp4">
+									<!-- Add additional source elements for other video formats, if needed -->
+									Your browser does not support the video tag.
+								</video>
+							</div>
+							<div class="image-container">
+								<p>Intertemporal Crystal Hedging is a small-scale quantitative hedge fund in a nascent phase of research and exploration. Our ambition is to leverage upper-echelon technical skills from mathematics to programming to finance in order to discover and exploit profitable investment opportunities, primarily within sports betting, but certainly, with time, also in more typical financial markets. Our name bears especial significance, with each component representing a philosophical cornerstone of our investment strategies.</p>
+								<p>Intertemporal: Sports betting markets are, when approached statically (at one point in time) rather than dynamically, intertemporally (at multiple points in time simultaneously), highly unfavourable for investors. Moskowitz (2021) provides evidence of high transaction costs in betting markets, vastly higher than in typical financial markets, so large that arbitrage cannot eliminate bookmaker mispricings. Put more practically, static betting is impossible, as hoping to systematically identify mispricings which are sufficiently egregious to exceed the bookmaker margin is not sustainable. As such, we seek intertemporal opportunities, seeking to place bets at the beginning of events to then assume an offsetting, hedged position at a later time when prices have moved. Our contention is that bookmakers emphasise being safe statically: they are covered with large margins at any given point time, where they are never exposed to static arbitrage; but it is, we believe, much more difficult to remain fully covered intertemporally, where the range of possible offsetting positions grows rapidly with time. Intertemporal means balancing multiple time periods and is where we find our edge.</p>
+								<p>Crystal: The word crystal holds multiple connotations which we want to embody. Firstly, and most crudely, perhaps, it has strong connotations of wealth, of luxury, objectives which a hedge fund should represent. On a more pragmatic level, however, crystal connotes transparency. For us, transparency goes in two directions. We want to be transparent, while remaining proprietary, with our investors regarding our strategies and methodologies. This is a transparency of honesty, of integrity. But we also want -- not in the direction of our investors, but in that of our trading second-parties -- a transparency of stealth. Above we noted that high transaction costs in the form of bookmaker margins render static betting strategies unprofitable in the long-run. Nonetheless, there exist strategies which have been shown to provide positive, significant returns, such as Kaunitz, et al (2017). Here, however, a second hurdle emerges. Namely, these researchers outline how, after profiting with actual trading, as opposed to paper trading, they were promptly banned or restricted by the bookmakers, who were no longer interested in taking their winning bets. This is not surprising. Buchdahl (2017) outlines how, amongst other techniques used to identify sustainably-profitable customers, bookmakers compare the odds at which bettors place their bet with the subsequent closing odds in the same market: the odds when the event commences. If, systematically, the closing odds are shorter than the bet odds, this is evidence that the bettor can identify prices that are too long and thus offer positive value. Kaunitz, et al&rsquo;s strategy was just so, finding long prices and betting them early before they were corrected by the market, moving them inwards. The Kaunitz, et al story is relevant here not because it is the form of strategy we pursue, but rather because it demonstrates the difficulty of remaining in business once that chimeric strategy has been found. And thus the furtive transparency. Crystal means staying under the bookmaker&rsquo;s radar, of betting in such a fashion which, although profitable, will to the bookmaker&rsquo;s AI appear to be a run of luck for a regular edgeless punter, luck which (they incorrectly believe) will peter out sooner much rather than later.</p>
+								<p>Hedging: We are a hedge fund, in the sense that we are primarily quantitative, availing ourselves of proper mathematical, financial tools. The intertemporal strategies that we envision require an exact understanding of how prices can move: what causes them to move and how large the corresponding movement is. This requires large supplies of data, which we obtain by scraping data from Oddschecker.com, the industry-leading odds-comparison site. Read more about our scraper, and interact with a sample of our data, <a href="/code">here</a>. It also requires precise mathematical modelling of the price-movement dynamics. You can find a rudimentary example of such modelling <a href="/glimpse">here</a>. In addition to understanding the price dynamism, our intertemporal strategies require tactful staking on the initial bet, or portfolio of bets, so as to maximise the set of occurrences during the event which facilitate profitable hedging. We thus optimise our staking in two dimensions. The first is this optionality sense, where we mitigate how susceptible we are to model mistakes by placing bets that are beneficial in multiple event contexts and multiple price trajectories. The second is a more standard bankroll management protocol, balancing the opposite forces of risk of ruin and compound growth. We utilise elaborate simulations over event outcomes to solve for the fraction-of-capital bet size which yields a desirable Value at Risk, which we define as a 5% chance of seeing a compound growth rate below 0% through a betting history of 1000 bets. We obviously control for the tailedness of those losses (Sarykalin, et al (2008)), not wanting to earn a pittance with a 5% chance of blowing up. Hedging means being mathematical and scientific, the endeavour to optimise wherever and whenever possible.</p>
+							</div>
+						</div>
+					</section>
+
+			</div>
+
+{% endblock %}

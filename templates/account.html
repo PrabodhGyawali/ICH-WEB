@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+
+{% include 'header.html' %}
+
+{% block styles %}
+<style>
+    a{
+       border-bottom: none;
+    }
+    a:hover{
+        color: #F2F597;
+   }
+    .container{
+        width: fit-content;
+        margin: 5% auto 15% auto;
+        text-align: center;
+        justify-content: center;
+
+    }
+    /* Add media queries for phone and computer */
+    .api-main{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 5%;
+    }
+    .flashes {
+        margin: 1%;
+        text-align: center;
+        margin-bottom: 0px;
+        color: #37B5B6;
+    }
+
+
+</style>
+{% endblock %}
+
+{% block content %}
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <div class=flashes>
+    {% for message in messages %}
+      <p>{{ message }}</p>
+    {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+<div class="container">
+
+    <div class="alert alert-info">
+        You can generate as many API keys as needed for your subscription. We accumulate the total load from all of them.
+    </div>
+    <br>
+    <div class="api-main">
+        <div class="col-md-8">
+            <table class="material_table api-keys">
+                <thead>
+                <tr>
+                    <th>Key</th>
+                    <th>Name</th>
+                    <th>Status</th>
+                    <th width="100px">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% if keys|length > 0 %}
+                    {% for key in keys %}
+                        <tr>
+                            <td>
+                                <pre>{{ key.api_key }}</pre>
+                            </td>
+                            <td>{{ key.name }}</td>
+                            <td><span>
+
+                                {% if key.status %} Active {% else %} Inactive {% endif %}</span></td>
+                            <td>
+                                <a class="activate_key_btn" key_id="{{ key.id }}" rel="nofollow" data-method="put" href="{{ url_for('account', key=key.id, action='activate') }}">
+                                    <i class="fa {{ 'fa-toggle-on' if key.status else 'fa-toggle-off' }} "></i></a>
+                                <a class="edit_key_btn">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                                <a class="del_key_btn" rel="nofollow" data-method="delete" href="{{ url_for('account', key=key.id, action='delete') }}">
+                                    🗑️
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-4">
+            <h4 style="border-bottom: 1px solid #f2f2f2; padding-bottom: 8pt;">Create key</h4>
+            <form class="new_api_key_form" action="" accept-charset="UTF-8" method="post" novalidate>
+
+                {{ form.csrf_token }}
+                {{ form.key_name }}
+                    {% if form.key_name.errors|length > 0 %}
+                        {{ form.key_name.errors[0] }}
+                    {% endif %}
+                <br>
+                {{ form.submit }}
+                <br>
+            </form></div>
+    </div>
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="{{ url_for('static', filename='assets/js/api-key/api-key-edit.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>ICH</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}">
+		<link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon">
+		<noscript><link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}"></noscript>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/codemirror.min.css">
+		<link rel="stylesheet" href="monokai.css">
+		<style>
+		/* Ensure the CodeMirror box takes up the full width and height of its container */
+		.CodeMirror {
+		width: 100%;
+		height: 500px; /* You can adjust the height as per your preference */
+		}
+
+		/* Customize the appearance of the editor content area */
+		.CodeMirror-lines {
+		font-family: 'Courier New', Courier, monospace;
+		font-size: 16px;
+		line-height: 1.5;
+		}
+
+		/* Set the background color of the editor */
+		.CodeMirror {
+		background-color: #f8f8f8;
+		
+		}
+
+		/* Set the color of the cursor */
+		.CodeMirror-cursor {
+		border-left: 2px solid #000;
+		}
+
+		/* Set the color of selected text */
+		.CodeMirror-selected {
+		background: #d9d9d9;
+		}
+
+		/* Customize the gutter (line numbers) */
+		.CodeMirror-gutter {
+		background-color: #f1f1f1;
+		border-right: 1px solid #ccc;
+		}
+
+		/* Set the font size and color for line numbers */
+		.CodeMirror-gutter-text {
+		font-size: 14px;
+		color: #666;
+		}
+
+		/* Add some padding around the editor */
+		.CodeMirror-scroll {
+		padding: 10px;
+		}
+
+		/* Add a border around the editor */
+		.CodeMirror {
+		border: 1px solid #ccc;
+		border-radius: 5px;
+		}
+
+		/* Set the color of the scrollbar thumb */
+		.CodeMirror-scrollbar-filler {
+		background-color: #f1f1f1;
+		}
+
+		/* Set the color of the scrollbar track */
+		.CodeMirror-scrollbar {
+		background-color: #e5e5e5;
+		}
+
+		/* Add some margin to create space under the CodeMirror box */
+		.code-editor-container {
+		margin-bottom: 45px;
+		}
+
+		.but {
+		margin-bottom: 45px;
+		}
+
+
+				/* Add this CSS to your existing stylesheet or create a new one */
+		.content {
+		max-width: 800px; /* Adjust this value to your desired content width */
+		margin: 0 auto; /* Center the content on the page if you want */
+		}
+
+		img {
+		float: right;
+		margin: 10px; /* Add some spacing around the image (optional) */
+		}
+
+		</style>
+	</head>
+	<body class="is-preload">
+		{% include "header.html" %}
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main" class="wrapper">
+						<div class="inner">
+                            <h2>Admin</h2>
+                            <div id="space"></div>
+                            <section>
+                                <form method="post" action="">
+                                    <div class="fields">
+                                        <div class="field half">
+                                            <label for="name">Username</label>
+                                            <input type="text" name="name" id="name" />
+                                        </div>
+                                        <div class="field half">
+                                            <label for="email">Password</label>
+                                            <input type="text" name="email" id="email" />       
+                                        </div>
+                                    </div>
+                                    <ul class="actions">
+                                        <li><a href="#" class="button submit">Log In</a></li>
+                                    </ul>
+                                </form>
+                            </section>
+					
+
+		<!-- Scripts -->
+			<script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+			<script src="{{ url_for('static', filename='assets/js/jquery.scrollex.min.js') }}"></script>
+			<script src="{{ url_for('static', filename='assets/js/jquery.scrolly.min.js') }}"></script>
+			<script src="{{ url_for('static', filename='assets/js/browser.min.js') }}"></script>
+			<script src="{{ url_for('static', filename='assets/js/breakpoints.min.js') }}"></script>
+			<script src="{{ url_for('static', filename='assets/js/util.js') }}"></script>
+			<script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/codemirror.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/mode/javascript/javascript.min.js"></script>
+			<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Load jQuery -->
+
+</html>

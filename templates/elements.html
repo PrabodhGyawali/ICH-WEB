@@ -1,0 +1,338 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>ICH</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}">
+		<link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon">
+		<noscript><link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}"></noscript>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/codemirror.min.css">
+		<link rel="stylesheet" href="monokai.css">
+		<style>
+		/* Ensure the CodeMirror box takes up the full width and height of its container */
+		.CodeMirror {
+		width: 100%;
+		height: 500px; /* You can adjust the height as per your preference */
+		}
+
+		/* Customize the appearance of the editor content area */
+		.CodeMirror-lines {
+		font-family: 'Courier New', Courier, monospace;
+		font-size: 16px;
+		line-height: 1.5;
+		}
+
+		/* Set the background color of the editor */
+		.CodeMirror {
+		background-color: #f8f8f8;
+		
+		}
+
+		/* Set the color of the cursor */
+		.CodeMirror-cursor {
+		border-left: 2px solid #000;
+		}
+
+		/* Set the color of selected text */
+		.CodeMirror-selected {
+		background: #d9d9d9;
+		}
+
+		/* Customize the gutter (line numbers) */
+		.CodeMirror-gutter {
+		background-color: #f1f1f1;
+		border-right: 1px solid #ccc;
+		}
+
+		/* Set the font size and color for line numbers */
+		.CodeMirror-gutter-text {
+		font-size: 14px;
+		color: #666;
+		}
+
+		/* Add some padding around the editor */
+		.CodeMirror-scroll {
+		padding: 10px;
+		}
+
+		/* Add a border around the editor */
+		.CodeMirror {
+		border: 1px solid #ccc;
+		border-radius: 5px;
+		}
+
+		/* Set the color of the scrollbar thumb */
+		.CodeMirror-scrollbar-filler {
+		background-color: #f1f1f1;
+		}
+
+		/* Set the color of the scrollbar track */
+		.CodeMirror-scrollbar {
+		background-color: #e5e5e5;
+		}
+
+		/* Add some margin to create space under the CodeMirror box */
+		.code-editor-container {
+		margin-bottom: 45px;
+		}
+
+		.but {
+		margin-bottom: 45px;
+		}
+
+
+				/* Add this CSS to your existing stylesheet or create a new one */
+		.content {
+		max-width: 800px; /* Adjust this value to your desired content width */
+		margin: 0 auto; /* Center the content on the page if you want */
+		}
+
+		img {
+		float: right;
+		margin: 10px; /* Add some spacing around the image (optional) */
+		}
+
+		</style>
+	</head>
+	<body class="is-preload">
+
+	{% include 'header.html' %}
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main" class="wrapper">
+						<div class="inner">
+							<h1 class="major">Scraper and Data</h1>
+
+
+	
+
+
+							<!-- Text -->
+								<section>
+									<p>As our name suggests, we require data that not only covers a vast range of events and markets, but that also covers a vast range of time, across those events and markets, as our strategy requires placing bets on the same event intertemporally. Our hands-on solution to this data issue has been to construct a scraper which can collect all the data we need. This provides us with the freedom to collect as much data as we desire, and the flexibility to collect whatever types of data we desire.</p>
+
+									<p> Oddschecker.com is a truly wonderful platform, collecting odds from the most respected bookmakers in the industry and conveniently comparing these, displaying for all markets the most favourable price and the supplying bookmaker. It does not only show the best price, however, but additionally shows all prices from all active bookmakers, meaning a bettor can gain an enhanced understanding of the distribution of prices, and hence the distribution of probability estimates on the market outcome. It also shows price trends, whether odds are moving inwards or outwards, which could in theory be useful for momentum strategies. Oddschecker, thus, has all the information that we could possibly need.</p>
+
+									<p> What our scraper does occurs in multiple stages. For an event where we desire data, it first gathers pre-match prices, just as the event begins, from the markets which we have requested. These prices are closing odds at which we place our initial bets. The scraper subsequently regathers odds for the same markets regularly throughout the event, with prespecified frequency. After the event has been completed, the data is structured conveniently in our database, from where we can access it freely. We can thus, across multiple events, analyse how prices move, identify trends and hence specify our trading strategies.</p>
+
+									<p> In the sandbox below you can interact with our data. It shows odds for the over line on the Total Goals Over/Under market from the first 45 or so minutes of play. The function section allows you to choose a function type to calculate a line of best fit for the data: &lsquo;polynomial&rsquo;, &lsquo;exponential&rsquo;, &lsquo;linear&rsquo;. The line section requires you to choose the specific over line for which you want to see data. If you want to see the over 2.5 line, simply enter 2.5. Colour, naturally, gives the colour of the line of best fit. On the ensuing plot you will find the equation of the line of best fit as well as the R-squared value. For some of the games there will be erratic jumps in the odds over time, where the lines of best fit will consequently be nonsensical. This, of course, will be reflected in a lower R-squared value. In the game section, simply copy and paste the full relevant file name.</p>
+									<hr />
+									<!-- Table -->
+							<section>
+								<h2>Sandbox</h2>
+								<div class="table-wrapper">
+									<table>
+										<thead>
+											<tr>
+												<th>Name</th>
+												<th>Date modified</th>
+												<th>Size</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>ajaccio-v-marseille.txt</td>
+												<td>2023-07-24 15:19</td>
+												<td>129 KB</td>
+											</tr>
+											<tr>
+												<td>argentina-u20-v-nigeria-u20.txt</td>
+												<td>2023-07-27 13:49</td>
+												<td>143 KB</td>
+											</tr>
+											<tr>
+												<td>henan-songshan-longmen-v-zhejiang.txt</td>
+												<td>2023-07-22 15:17</td>
+												<td>36 KB</td>
+											</tr>
+											<tr>
+												<td>shandong-taishan-v-dalian-pro.txt</td>
+												<td>2023-07-14 12:45</td>
+												<td>61 KB</td>
+											</tr>
+											<tr>
+												<td>union-santa-fe-v-gimnasia-lp.txt</td>
+												<td>2023-07-10 08:40</td>
+												<td>103 KB</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div id="space"></div>
+								<section>
+									<form method="post" action="">
+										<div class="fields">
+											<div class="field half">
+												<label for="name">game</label>
+												<input type="text" name="name" id="name" />
+											</div>
+											<div class="field half">
+												<label for="email">line</label>
+												<input type="text" name="email" id="email" />
+											</div>
+											<div class="field half">
+												<label for="message">colour</label>
+												<input type="text" name="message" id="email"></input>
+											</div>
+											<div class="field half">
+												<label for="func">function</label>
+												<input type="text" name="func" id="email"></input>
+											</div>
+										</div>
+										<ul class="actions">
+											<li><a href="/index.html" class="button submit">Download graph</a></li>
+										</ul>
+									</form>
+								</section>
+								
+							</section>
+
+							
+							
+					
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+			<script src="{{ url_for('static', filename='assets/js/jquery.scrollex.min.js') }}"></script>
+			<script src="{{ url_for('static', filename='assets/js/jquery.scrolly.min.js') }}"></script>
+			<script src="{{ url_for('static', filename='assets/js/browser.min.js') }}"></script>
+			<script src="{{ url_for('static', filename='assets/js/breakpoints.min.js') }}"></script>
+			<script src="{{ url_for('static', filename='assets/js/util.js') }}"></script>
+			<script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/codemirror.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/mode/javascript/javascript.min.js"></script>
+			<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Load jQuery -->
+			<script>
+			  document.addEventListener('DOMContentLoaded', function () {
+				// Get the container element for the code editor
+				var codeEditorContainer = document.getElementById('code-editor');
+		  
+				// CodeMirror settings
+				var editor = CodeMirror(codeEditorContainer, {
+				  value: `def map(gamedhsa, colord, line, func):
+
+	if func == 'polynomial':
+		fig, ax = plt.subplots()
+		folder = 'table'
+		funny = games(folder)[0]
+		ind = funny.index(gamedhsa)
+
+		u = funny[ind]
+		
+		name = 'oddname'    
+		ypoints = np.array(get_odds_for_game(u, name, f'Over {line}', games(folder)[1]))
+
+		xlits = []
+		for x in range(len(ypoints)): xlits.append(x)
+		xpoints = np.array(xlits)
+
+		popt, _ = curve_fit(objective, xpoints, ypoints)
+
+		a, b, c = popt
+
+		plt.scatter(xpoints, ypoints)
+
+		x_line = arange(min(xpoints), max(xpoints), 1)
+
+		y_line = objective(x_line, a, b, c)
+
+		colors = [colord]
+
+
+		# Plot the data with a red dashed line and markers for data points
+		plt.plot(x_line, y_line, '--', color=colors[0], linewidth=2, markersize=8, label=f'{round(a, 3)}x + {round(b, 3)}x^2 + {round(c, 3)}')
+
+		# Add labels and title with larger font size and bold text
+		plt.xlabel('Time', fontsize=14, fontweight='bold')
+		plt.ylabel('Odd', fontsize=14, fontweight='bold')
+		plt.title(u, fontsize=16, fontweight='bold')
+
+		# Customize the appearance of the grid li  nes
+		plt.grid(True, linestyle='--', alpha=0.5)
+
+			# Customize the appearance of the tick labels
+		plt.xticks(fontsize=12)
+		plt.yticks(fontsize=12)
+
+		# Set axis limits for better visualization
+		plt.xlim(min(x_line), max(x_line))
+		plt.ylim(min(y_line), max(y_line))
+
+		# Add a legend with a border and shadow
+		plt.legend(loc='upper right', fontsize=12, fancybox=True, framealpha=1, shadow=True)
+
+		# Add a background color to the plot
+		plt.gca().set_facecolor('#f7f7f7')
+
+		# Add a subtle border around the plot
+		plt.gca().spines['top'].set_visible(False)
+		plt.gca().spines['right'].set_visible(False)
+		plt.gca().spines['bottom'].set_linewidth(0.5)
+		plt.gca().spines['left'].set_linewidth(0.5)
+
+		# Adjust plot boundaries for better layout
+		plt.tight_layout()
+
+		os.makedirs('static/images', exist_ok=True)
+
+		# Save the plot as an image file in the 'static/images' directory
+		newu = u.split('.txt')
+		plt.savefig(f'static/images/{newu[0]}.png')
+		plt.close()
+
+	return map(game, colour, line, func)`,
+				  mode: 'python',
+				  lineNumbers: true,
+				  theme: 'monokai', // Change the theme name to 'monokai'
+				});
+		  
+				// Handle the click event for the "Submit Code" button
+				$("#submit-code").on("click", function () {
+				  var code = editor.getValue(); // Get the code from the editor
+				  sendCodeToServer(code); // Call the function to send code to the server
+				});
+		  
+				// Function to send the code to the server using AJAX
+				function sendCodeToServer(code) {
+				  $.ajax({
+					type: "POST", // Use POST or GET based on your server's requirements
+					url: "/process_code", // Replace this with the server endpoint URL to handle code processing
+					data: { code: code },
+					success: function (response) {
+					  // Handle the response from the server (if needed)
+					  console.log(response);
+					},
+					error: function (error) {
+					  // Handle any errors (if needed)
+					  console.log("Error:", error);
+					},
+				  });
+				}
+			  });
+	
+			function goToRoute() {
+				window.location.href = '/download';
+			}
+			function goToRoute1() {
+				window.location.href = '/map';
+			}
+
+			</script>
+
+
+	</body>
+</html>
